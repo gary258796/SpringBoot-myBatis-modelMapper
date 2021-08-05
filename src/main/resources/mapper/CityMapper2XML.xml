@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="gary.spring.mybatis.mybatisintegrate.dao.CityDao2">
+    <resultMap type="gary.spring.mybatis.mybatisintegrate.model.City" id="City">
+        <id column="ID" property="id"></id>
+        <result column="STATE" property="state" javaType="String" ></result>
+        <result column="CITY_NAME" property="cityName" javaType="String" ></result>
+    </resultMap>
+
+    <select id="finaAllCity" resultMap="City">
+        select * from CITY
+    </select>
+
+    <select id="findByState" resultMap="City" >
+        SELECT * FROM CITY WHERE state = #{state}
+        <if test="orderBy!=null and orderBy!='' and orderType!=null and orderType!=''">
+            ORDER BY ${orderBy} ${orderType}
+        </if>
+    </select>
+
+    <insert id="insertCity" parameterType="gary.spring.mybatis.mybatisintegrate.model.City"
+            useGeneratedKeys="true" keyProperty="city.id" keyColumn="ID">
+        INSERT INTO CITY (CITY_NAME, STATE)
+        VALUES (#{city.cityName}, #{city.state})
+    </insert>
+</mapper>
