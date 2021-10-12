@@ -2,9 +2,11 @@ pipeline {
   agent any
   stages {
       stage('Check out code from SCM.') {
-        git branch: 'main',
-            credentialsId: '312373b3-3fa1-4bf6-af08-49a7b740e417',
-            url: 'https://github.com/gary258796/SpringBoot-myBatis-modelMapper.git'
+        steps {
+            git branch: 'main',
+                        credentialsId: '312373b3-3fa1-4bf6-af08-49a7b740e417',
+                        url: 'https://github.com/gary258796/SpringBoot-myBatis-modelMapper.git'
+        }
       }
       stage('Build project') {
         tools {
