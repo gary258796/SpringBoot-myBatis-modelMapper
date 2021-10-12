@@ -5,3 +5,5 @@ mybatis-integrate.iml
 HELP.md
 target/*
 .idea
+.DS_Store
+skipper.keystore

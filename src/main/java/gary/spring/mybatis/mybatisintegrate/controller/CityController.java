@@ -10,9 +10,13 @@ import gary.spring.mybatis.mybatisintegrate.service.CityService;
 import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.Enumeration;
 import java.util.List;
 
 @RestController
@@ -55,8 +59,16 @@ public class CityController {
         return mapper.map(customer,CustomerDto.class);
     }
 
+//    @CrossOrigin(origins = "http://localhost:3128")
     @GetMapping(value = "/getAllCity")
-    public List<City> findAllCity() {
+    public List<City> findAllCity() throws InterruptedException {
+//        Thread.sleep(5000);
+//        Enumeration headerNames = request.getHeaderNames();
+//        while (headerNames.hasMoreElements()) {
+//            String key = (String) headerNames.nextElement();
+//            String value = request.getHeader(key);
+//            System.out.println("key: " + key + ", value: " + value);
+//        }
         return cityService.finaAllCity();
     }
 
