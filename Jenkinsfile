@@ -23,7 +23,7 @@ pipeline {
             jdk 'jdk_11'
         }
         steps {
-            withSonarQubeEnv(credentialsId: '6188b396-4fe7-4b02-a520-02b5cd7ec631', installationName: 'sonarqube_server') {
+            withSonarQubeEnv(credentialsId: 'fc3b795e-77e7-4d87-845e-e9aee57560a1', installationName: 'sonarqube_server') {
               withMaven(maven:'maven_3.6.2') {
                 sh 'mvn sonar:sonar'
               }
