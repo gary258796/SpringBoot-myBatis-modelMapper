@@ -16,6 +16,13 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <!--Below is properties for SonarQube usage-->
+        <sonar.host.url>http://sonarqube_server:9000</sonar.host.url>
+        <sonar.projectName>SonarRepo_ModelMapper</sonar.projectName>
+        <sonar.login>979d2af7202e0e43dda6bf35a09a8a22e6e9daa3</sonar.login>
+        <!--Leave password blank if using auth token as login content.-->
+        <sonar.password></sonar.password>
+        <sonar.projectDescription>This is repo integrate with sonarQube.</sonar.projectDescription>
     </properties>
 
     <dependencies>
